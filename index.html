@@ -207,6 +207,132 @@
       color: #555;
     }
 
+    .speaker-badge-img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 0.5rem;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .speaker-badge-img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Research Papers Section Styles */
+    .research-papers {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .papers-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .paper-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border-left: 4px solid #cce3dc;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .paper-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, transparent, rgba(204, 227, 220, 0.1));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .paper-card:hover::before {
+      opacity: 1;
+    }
+
+    .paper-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      border-left-color: #4c6c5d;
+    }
+
+    .paper-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+
+    .paper-details {
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .paper-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: #888;
+      margin-bottom: 1rem;
+    }
+
+    .paper-journal {
+      font-style: italic;
+    }
+
+    .paper-year {
+      background: #f0f0f0;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+
+    .paper-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: #4c6c5d;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .paper-link:hover {
+      color: #2c4c3d;
+    }
+
+    .paper-link::after {
+      content: '→';
+      transition: transform 0.2s ease;
+    }
+
+    .paper-link:hover::after {
+      transform: translateX(3px);
+    }
+
     @media (max-width: 768px) {
       .speaker-grid {
         grid-template-columns: 1fr;
@@ -220,22 +346,12 @@
       .session-image {
         justify-self: start;
       }
+
+      .papers-grid {
+        grid-template-columns: 1fr;
+      }
     }
-  .speaker-badge-img {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 0.5rem;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
-}
-.speaker-badge-img:hover {
-  transform: scale(1.1);
-}
-
-
-</style>
+  </style>
 </head>
 <body>
   <main class="page">
@@ -285,7 +401,7 @@
             <div class="speakers">
               <img src="https://www.aliusresearch.org/uploads/9/1/6/0/91600416/siesta_orig.png" alt="Dr. A. Smith" class="speaker-badge-img">
               <img src="https://www.aliusresearch.org/uploads/9/1/6/0/91600416/stratos_orig.png" alt="Dr. L. Kumar" class="speaker-badge-img">
-	      <img src="https://www.aliusresearch.org/uploads/9/1/6/0/91600416/stratos_orig.png" alt="Dr. L. Kumar" class="speaker-badge-img">
+              <img src="https://www.aliusresearch.org/uploads/9/1/6/0/91600416/stratos_orig.png" alt="Dr. L. Kumar" class="speaker-badge-img">
             </div>
           </div>
           <div class="session-image">
@@ -312,6 +428,111 @@
           <img src="https://via.placeholder.com/200" alt="Prof. Y. Tanaka">
           <h4>Prof. Y. Tanaka</h4>
           <p>Artist & Theorist, Tokyo Arts Academy</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="research-papers">
+      <h3>Featured Research</h3>
+      <div class="papers-grid">
+        <div class="paper-card">
+          <h4 class="paper-title">Neural Correlates of Consciousness: Progress and Problems</h4>
+          <div class="paper-meta">
+            <span class="paper-journal">Nature Neuroscience</span>
+            <span class="paper-year">2024</span>
+          </div>
+          <p class="paper-details">Recent advances in understanding how neural activity gives rise to conscious experience, focusing on integrated information theory and global workspace dynamics.</p>
+          <a href="https://www.nature.com/articles/s41593-024-01600-y" target="_blank" class="paper-link">Read Paper</a>
+        </div>
+
+        <div class="paper-card">
+          <h4 class="paper-title">The Meta-Problem of Consciousness</h4>
+          <div class="paper-meta">
+            <span class="paper-journal">Journal of Consciousness Studies</span>
+            <span class="paper-year">2023</span>
+          </div>
+          <p class="paper-details">Why do we think there is a hard problem of consciousness? This paper explores the intuitions that drive our puzzlement about conscious experience.</p>
+          <a href="https://doi.org/10.53765/20512201.30.11.143" target="_blank" class="paper-link">Read Paper</a>
+        </div>
+
+        <div class="paper-card">
+          <h4 class="paper-title">Predictive Processing and the Phenomenology of Time Consciousness</h4>
+          <div class="paper-meta">
+            <span class="paper-journal">Cognitive Science</span>
+            <span class="paper-year">2024</span>
+          </div>
+          <p class="paper-details">How predictive coding frameworks can explain temporal aspects of conscious experience, including the specious present and flow of time.</p>
+          <a href="https://onlinelibrary.wiley.com/doi/10.1111/cogs.13234" target="_blank" class="paper-link">Read Paper</a>
+        </div>
+
+        <div class="paper-card">
+          <h4 class="paper-title">Embodied Cognition and Extended Mind: Where Does the Mind Stop?</h4>
+          <div class="paper-meta">
+            <span class="paper-journal">Philosophy Compass</span>
+            <span class="paper-year">2023</span>
+          </div>
+          <p class="paper-details">Examining the boundaries of cognition and consciousness, exploring how tools and environment become part of our cognitive processes.</p>
+          <a href="https://compass.onlinelibrary.wiley.com/doi/10.1111/phc3.12949" target="_blank" class="paper-link">Read Paper</a>
+        </div>
+
+        <div class="paper-card">
+          <h4 class="paper-title">Quantum Theories of Consciousness: Compelling or Dispensable?</h4>
+          <div class="paper-meta">
+            <span class="paper-journal">Physics of Life Reviews</span>
+            <span class="paper-year">2024</span>
+          </div>
+          <p class="paper-details">Critical evaluation of quantum approaches to consciousness, examining both orchestrated objective reduction and quantum information theories.</p>
+          <a href="https://www.sciencedirect.com/science/article/pii/S1571064523001793" target="_blank" class="paper-link">Read Paper</a>
+        </div>
+
+        <div class="paper-card">
+          <h4 class="paper-title">The Attention Schema Theory: A Foundation for Engineering Artificial Consciousness</h4>
+          <div class="paper-meta">
+            <span class="paper-journal">Frontiers in Robotics and AI</span>
+            <span class="paper-year">2023</span>
+          </div>
+          <p class="paper-details">Proposes that consciousness arises from the brain's schematic model of its own attention, with implications for machine consciousness.</p>
+          <a href="https://www.frontiersin.org/articles/10.3389/frobt.2023.1150730" target="_blank" class="paper-link">Read Paper</a>
+        </div>
+
+        <div class="paper-card">
+          <h4 class="paper-title">Psychedelics and the Entropic Brain: Revisited</h4>
+          <div class="paper-meta">
+            <span class="paper-journal">Pharmacological Reviews</span>
+            <span class="paper-year">2024</span>
+          </div>
+          <p class="paper-details">Updated framework for understanding how psychedelic compounds alter consciousness through increased neural entropy and reduced predictive constraints.</p>
+          <a href="https://pharmrev.aspetjournals.org/content/76/2/356" target="_blank" class="paper-link">Read Paper</a>
+        </div>
+
+        <div class="paper-card">
+          <h4 class="paper-title">Minimal Phenomenal Experience: Meditation, Tonic Alertness, and the Phenomenology of Pure Awareness</h4>
+          <div class="paper-meta">
+            <span class="paper-journal">Philosophy and the Mind Sciences</span>
+            <span class="paper-year">2023</span>
+          </div>
+          <p class="paper-details">Investigation of pure awareness states in meditation and their implications for understanding the minimal conditions for consciousness.</p>
+          <a href="https://philosophymindscience.org/index.php/phimisci/article/view/9427" target="_blank" class="paper-link">Read Paper</a>
+        </div>
+
+        <div class="paper-card">
+          <h4 class="paper-title">The Integrated Information Theory of Consciousness: An Update</h4>
+          <div class="paper-meta">
+            <span class="paper-journal">PLOS Computational Biology</span>
+            <span class="paper-year">2024</span>
+          </div>
+          <p class="paper-details">Latest developments in IIT 3.0, including mathematical formalism for measuring consciousness and experimental validation approaches.</p>
+          <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011316" target="_blank" class="paper-link">Read Paper</a>
+        </div>
+
+        <div class="paper-card">
+          <h4 class="paper-title">Animal Consciousness: New Directions and Emerging Questions</h4>
+          <div class="paper-meta">
+            <span class="paper-journal">Annual Review of Psychology</span>
+            <span class="paper-year">2024</span>
+          </div>
+          <p class="paper-details">Comprehensive review of evidence for consciousness across species, from cephalopods to birds, challenging anthropocentric views of awareness.</p>
+          <a href="https://www.annualreviews.org/doi/10.1146/annurev-psych-010723-015339" target="_blank" class="paper-link">Read Paper</a>
         </div>
       </div>
     </section>
