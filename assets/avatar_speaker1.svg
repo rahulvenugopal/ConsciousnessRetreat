@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EBF4F0"/>
+      <stop offset="100%" stop-color="#D0E3DA"/>
+    </linearGradient>
+    <linearGradient id="skin1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D5A4C"/>
+      <stop offset="100%" stop-color="#1A382F"/>
+    </linearGradient>
+    <linearGradient id="goldAcc1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#AA771C"/>
+    </linearGradient>
+  </defs>
+  <circle cx="50" cy="50" r="48" fill="url(#bg1)" stroke="url(#goldAcc1)" stroke-width="2"/>
+  <circle cx="50" cy="50" r="42" fill="none" stroke="#2D5A4C" stroke-width="0.8" stroke-dasharray="2,3" opacity="0.6"/>
+  <!-- Neural lattice halo -->
+  <path d="M25 45 Q50 20 75 45 Q50 70 25 45" fill="none" stroke="url(#goldAcc1)" stroke-width="1" opacity="0.7"/>
+  <!-- Head & Shoulders Silhouette -->
+  <circle cx="50" cy="40" r="14" fill="url(#skin1)"/>
+  <!-- Glasses -->
+  <circle cx="45" cy="39" r="4" fill="none" stroke="#D4AF37" stroke-width="1.2"/>
+  <circle cx="55" cy="39" r="4" fill="none" stroke="#D4AF37" stroke-width="1.2"/>
+  <line x1="49" y1="39" x2="51" y2="39" stroke="#D4AF37" stroke-width="1.2"/>
+  <!-- Shoulders -->
+  <path d="M28 78 C28 60 40 57 50 57 C60 57 72 60 72 78 Z" fill="url(#skin1)"/>
+  <!-- Collar accent -->
+  <polygon points="50,65 44,57 56,57" fill="#FAF8F5"/>
+  <circle cx="50" cy="50" r="46" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.5"/>
+</svg>

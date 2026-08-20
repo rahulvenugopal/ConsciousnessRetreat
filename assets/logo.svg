@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="35%" stop-color="#F3E5AB"/>
+      <stop offset="70%" stop-color="#AA771C"/>
+      <stop offset="100%" stop-color="#8B6508"/>
+    </linearGradient>
+    <linearGradient id="emeraldGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1A382F"/>
+      <stop offset="50%" stop-color="#2D5A4C"/>
+      <stop offset="100%" stop-color="#4E8775"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#F6E7C8" stop-opacity="0.6"/>
+      <stop offset="80%" stop-color="#B88A44" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#2D5A4C" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Fine Celestial Ring -->
+  <circle cx="100" cy="100" r="95" fill="none" stroke="url(#goldGrad)" stroke-width="1.2" opacity="0.7"/>
+  <circle cx="100" cy="100" r="91" fill="none" stroke="#2D5A4C" stroke-width="0.8" stroke-dasharray="2,4" opacity="0.6"/>
+  <circle cx="100" cy="100" r="85" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.85"/>
+
+  <!-- 12 Orbital Nodes on Outer Perimeter -->
+  <g stroke="url(#goldGrad)" fill="#FAF8F5" stroke-width="1">
+    <circle cx="100" cy="9" r="2.5"/>
+    <circle cx="145.5" cy="21.2" r="2"/>
+    <circle cx="178.8" cy="54.5" r="2"/>
+    <circle cx="191" cy="100" r="2.5"/>
+    <circle cx="178.8" cy="145.5" r="2"/>
+    <circle cx="145.5" cy="178.8" r="2"/>
+    <circle cx="100" cy="191" r="2.5"/>
+    <circle cx="54.5" cy="178.8" r="2"/>
+    <circle cx="21.2" cy="145.5" r="2"/>
+    <circle cx="9" cy="100" r="2.5"/>
+    <circle cx="21.2" cy="54.5" r="2"/>
+    <circle cx="54.5" cy="21.2" r="2"/>
+  </g>
+
+  <!-- Sacred Geometry: Overlapping Torus / Seed of Life Rings -->
+  <!-- 6 Interlocking Petal Rings -->
+  <g fill="none" stroke="url(#emeraldGrad)" stroke-width="1.2" opacity="0.45">
+    <circle cx="100" cy="62" r="38"/>
+    <circle cx="132.9" cy="81" r="38"/>
+    <circle cx="132.9" cy="119" r="38"/>
+    <circle cx="100" cy="138" r="38"/>
+    <circle cx="67.1" cy="119" r="38"/>
+    <circle cx="67.1" cy="81" r="38"/>
+  </g>
+
+  <!-- Golden Hexagram Web of Awareness -->
+  <g fill="none" stroke="url(#goldGrad)" stroke-width="1.2" opacity="0.75">
+    <!-- Upward Triangle -->
+    <polygon points="100,32 158.9,134 41.1,134"/>
+    <!-- Downward Triangle -->
+    <polygon points="100,168 158.9,66 41.1,66"/>
+  </g>
+
+  <!-- 12-Fold Phenomenological Lotus Petals -->
+  <g fill="none" stroke="url(#emeraldGrad)" stroke-width="1.4" opacity="0.8">
+    <!-- Vertical / Horizontal Petals -->
+    <path d="M100 44 C90 65 90 85 100 100 C110 85 110 65 100 44 Z" fill="url(#emeraldGrad)" fill-opacity="0.08"/>
+    <path d="M100 156 C90 135 90 115 100 100 C110 115 110 135 100 156 Z" fill="url(#emeraldGrad)" fill-opacity="0.08"/>
+    <path d="M44 100 C65 90 85 90 100 100 C85 110 65 110 44 100 Z" fill="url(#emeraldGrad)" fill-opacity="0.08"/>
+    <path d="M156 100 C135 90 115 90 100 100 C115 110 135 110 156 100 Z" fill="url(#emeraldGrad)" fill-opacity="0.08"/>
+    <!-- Diagonal Petals -->
+    <path d="M60.4 60.4 C77.4 66.8 91.5 80.9 100 100 C80.9 91.5 66.8 77.4 60.4 60.4 Z" fill="url(#emeraldGrad)" fill-opacity="0.06"/>
+    <path d="M139.6 60.4 C122.6 66.8 108.5 80.9 100 100 C119.1 91.5 133.2 77.4 139.6 60.4 Z" fill="url(#emeraldGrad)" fill-opacity="0.06"/>
+    <path d="M139.6 139.6 C122.6 133.2 108.5 119.1 100 100 C119.1 108.5 133.2 122.6 139.6 139.6 Z" fill="url(#emeraldGrad)" fill-opacity="0.06"/>
+    <path d="M60.4 139.6 C77.4 133.2 91.5 119.1 100 100 C80.9 108.5 66.8 122.6 60.4 139.6 Z" fill="url(#emeraldGrad)" fill-opacity="0.06"/>
+  </g>
+
+  <!-- Golden Concentric Micro-Chambers (Vesica & Recursive Rings) -->
+  <circle cx="100" cy="100" r="38" fill="none" stroke="url(#goldGrad)" stroke-width="1.5"/>
+  <circle cx="100" cy="100" r="28" fill="none" stroke="#2D5A4C" stroke-width="1.2" stroke-dasharray="3,3"/>
+  <circle cx="100" cy="100" r="18" fill="none" stroke="url(#goldGrad)" stroke-width="1.8"/>
+
+  <!-- Radiant Inner Aura -->
+  <circle cx="100" cy="100" r="18" fill="url(#centerGlow)"/>
+
+  <!-- The Central Bindu / Luminous Singularity of Awareness -->
+  <circle cx="100" cy="100" r="7" fill="url(#goldGrad)" filter="url(#softGlow)"/>
+  <circle cx="100" cy="100" r="3.5" fill="#FFFFFF"/>
+</svg>

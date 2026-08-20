@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="bg5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EBF0F5"/>
+      <stop offset="100%" stop-color="#CFDDEB"/>
+    </linearGradient>
+    <linearGradient id="goldAcc5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#AA771C"/>
+    </linearGradient>
+  </defs>
+  <circle cx="50" cy="50" r="48" fill="url(#bg5)" stroke="url(#goldAcc5)" stroke-width="2"/>
+  <!-- Oscillatory EEG brainwave background -->
+  <path d="M18 42 L30 42 L34 34 L38 50 L42 38 L46 44 L54 42 L58 32 L62 52 L66 42 L82 42" fill="none" stroke="#2D5A4C" stroke-width="1.2" opacity="0.5"/>
+  <!-- Distinguished Silver Hair Silhouette -->
+  <ellipse cx="50" cy="38" rx="14" ry="14" fill="#7D8B96"/>
+  <!-- Face -->
+  <ellipse cx="50" cy="41" rx="12" ry="13" fill="#D6B89E"/>
+  <!-- White moustache / refined features -->
+  <path d="M43 47 Q50 49 57 47 Q50 51 43 47" fill="#EAECEE"/>
+  <!-- Suit Shoulders -->
+  <path d="M26 78 C26 60 38 56 50 56 C62 56 74 60 74 78 Z" fill="#2C3B4D"/>
+  <polygon points="50,68 44,56 56,56" fill="#FAF8F5"/>
+  <!-- Tie -->
+  <polygon points="50,59 52,69 50,73 48,69" fill="#B88A44"/>
+  <circle cx="50" cy="50" r="46" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.5"/>
+</svg>

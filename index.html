@@ -3,535 +3,2014 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Consciousness Camp 2026 – Consciousness</title>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Work+Sans:wght@300;400&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg-light: #f9f7f5;
-      --text-light: #3b3b3b;
-      --accent: #cce3dc;
-      --card: #ffffff;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Work Sans', sans-serif;
-      background: var(--bg-light);
-      color: var(--text-light);
-      margin: 0;
-      padding: 0;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    .page {
-      max-width: 960px;
-      margin: auto;
-      padding: 1rem;
-      padding-bottom: 4rem; /* adds extra space at the bottom */
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 2rem;
-      animation: fadeInUp 1s ease forwards;
-    }
-
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-    }
-
-    h2 {
-      font-family: 'Libre Baskerville', serif;
-      font-size: 1.5rem;
-      color: #666;
-    }
-
-    .banner-img {
-      width: 100%;
-      height: auto;
-      margin: 2rem 0;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-    }
-
-    .intro p {
-      font-size: 1.1rem;
-      text-align: justify;
-      margin-bottom: 3rem;
-    }
-
-    h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      margin-bottom: 2rem;
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .program-list {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .session-card {
-      background: var(--card);
-      border-radius: 16px;
-      padding: 1.5rem 2rem;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-      display: grid;
-      grid-template-columns: 140px 1fr 60px;
-      gap: 1.5rem;
-      align-items: start;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeUp 0.8s forwards;
-    }
-
-    .session-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-    }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .time-block {
-      font-size: 0.9rem;
-      font-weight: 500;
-      text-align: left;
-      line-height: 1.4;
-    }
-
-    .time-block .date {
-      display: block;
-      font-size: 1rem;
-      font-weight: bold;
-    }
-
-    .content-block {
-      flex: 1;
-    }
-
-    .tag {
-      display: inline-block;
-      font-size: 1rem;
-      font-weight: 600;
-      padding: 0.3rem 0.75rem;
-      border-radius: 12px;
-      margin-bottom: 0.5rem;
-      font-family: 'Playfair Display', serif;
-      background: #cce3dc;
-      color: #4c6c5d;
-    }
-
-    .session-desc {
-      font-size: 0.95rem;
-      color: #444;
-      margin: 0.5rem 0 0.5rem;
-      line-height: 1.5;
-    }
-
-    .session-image img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-
-    .speaker-badge {
-      display: inline-block;
-      background: #f1f1f1;
-      padding: 0.3rem 0.75rem;
-      border-radius: 12px;
-      margin-right: 0.5rem;
-      font-size: 0.9rem;
-      color: #4b6571;
-      text-decoration: none;
-      transition: all 0.2s ease-in-out;
-    }
-
-    .speaker-badge:hover {
-      background: #d4e4ea;
-      color: #1d3f49;
-    }
-
-    .speaker-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
-
-    .speaker-card {
-      background: white;
-      border-radius: 12px;
-      padding: 1rem;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .speaker-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    }
-
-    .speaker-card img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-    }
-
-    .speaker-card h4 {
-      margin: 0.5rem 0 0.3rem;
-      font-size: 1.1rem;
-      font-family: 'Libre Baskerville', serif;
-    }
-
-    .speaker-card p {
-      font-size: 0.9rem;
-      color: #555;
-    }
-
-    .speaker-badge-img {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-right: 0.5rem;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s ease;
-    }
-
-    .speaker-badge-img:hover {
-      transform: scale(1.1);
-    }
-
-    /* Research Papers Section Styles */
-    .research-papers {
-      margin-top: 4rem;
-      padding-top: 2rem;
-      border-top: 1px solid #e0e0e0;
-    }
-
-    .papers-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .paper-card {
-      background: var(--card);
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      transition: all 0.3s ease;
-      border-left: 4px solid #cce3dc;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .paper-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none; /* prevents overlay from blocking clicks */
-      background: linear-gradient(135deg, transparent, rgba(204, 227, 220, 0.1));
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .paper-card:hover::before {
-      opacity: 1;
-    }
-
-    .paper-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      border-left-color: #4c6c5d;
-    }
-
-    .paper-title {
-      font-family: 'Libre Baskerville', serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #2c3e50;
-      margin-bottom: 0.75rem;
-      line-height: 1.4;
-    }
-
-    .paper-details {
-      font-size: 0.9rem;
-      color: #666;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .paper-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.85rem;
-      color: #888;
-      margin-bottom: 1rem;
-    }
-
-    .paper-journal {
-      font-style: italic;
-    }
-
-    .paper-year {
-      background: #f0f0f0;
-      padding: 0.2rem 0.5rem;
-      border-radius: 6px;
-      font-weight: 500;
-    }
-
-    .paper-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      text-decoration: none;
-      color: #4c6c5d;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: color 0.2s ease;
-    }
-
-    .paper-link:hover {
-      color: #2c4c3d;
-    }
-
-    .paper-link::after {
-      content: '→';
-      transition: transform 0.2s ease;
-    }
-
-    .paper-link:hover::after {
-      transform: translateX(3px);
-    }
-
-    @media (max-width: 768px) {
-      .speaker-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .session-card {
-        grid-template-columns: 1fr;
-        text-align: left;
-      }
-
-      .session-image {
-        justify-self: start;
-      }
-
-      .papers-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <title>Consciousness Retreat 2027 – A 7-Day Residential Inquiry</title>
+  <meta name="description" content="A 7-day residential retreat bringing together neuroscience, cognitive science, philosophy, and contemplative traditions to explore the fundamental nature of consciousness in Silent Valley." />
+  
+  <!-- Modern Typography from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Design System & Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="page">
-    <header>
-      <h1>Consciousness Retreat 2026</h1>
-      <h2>A week long retreat on the most fundamental question</h2>
-    </header>
+  <!-- Ambient Atmosphere -->
+  <div class="bg-ambient-glow" aria-hidden="true"></div>
 
-    <div class="banner">
-      <img src="https://www.aliusresearch.org/uploads/9/1/6/0/91600416/program_orig.png" alt="Program Banner" class="banner-img">
+  <!-- Transparent Minimal Header (Popping Logo Only) -->
+  <header class="site-nav">
+    <div class="container nav-wrapper">
+      <a href="#" class="nav-brand" aria-label="Consciousness Retreat Home">
+        <div class="brand-logo-disc">
+          <img src="assets/logo.svg" alt="Consciousness Retreat Emblem" class="brand-logo-img" />
+        </div>
+      </a>
     </div>
+  </header>
 
-    <section class="intro">
-      <p>
-        This retreat brings together researchers from neuroscience, cognitive science, philosophy, machine intelligence and the arts to explore the nature of consciousness in a collaborative, informal setting. Through presentations, dialogues, and interactive sessions, we seek to foster novel perspectives, training and enduring collaborations.
-      </p>
-    </section>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <h1 class="hero-title">
+          Consciousness Retreat <em>2027</em>
+        </h1>
 
-    <section class="program">
-      <h3>Program</h3>
-      <div class="program-list">
-        <div class="session-card">
-          <div class="time-block">
-            <span class="date">July 25</span>
-            <span class="time">10:00–11:30</span>
+        <p class="hero-subtitle">
+          A residential week of sustained cognitive bandwidth, neurophenomenology, and quiet contemplation exploring the fundamental question of subjective experience.
+        </p>
+
+        <!-- Sanctuary Landscape Banner with Stats Overlay -->
+        <div class="hero-banner-card">
+          <img src="assets/hero.jpg" alt="Consciousness Retreat Sanctuary Landscape in Silent Valley" class="hero-bg-img" />
+          
+          <!-- Frosted Glass Stats Overlay -->
+          <div class="hero-vertical-meta">
+            <div class="vertical-stat-item">
+              <span class="v-stat-num">7</span>
+              <span class="v-stat-label">Days</span>
+            </div>
+            <div class="vertical-stat-item">
+              <span class="v-stat-num">6</span>
+              <span class="v-stat-label">Speakers</span>
+              <span class="v-stat-analogy">Qualia Cartographers</span>
+            </div>
+            <div class="vertical-stat-item">
+              <span class="v-stat-num">20</span>
+              <span class="v-stat-label">Participants</span>
+              <span class="v-stat-analogy">Inquiring Minds</span>
+            </div>
           </div>
-          <div class="content-block">
-            <div class="tag">Opening Circle</div>
-            <p class="session-desc">Welcome to the retreat. This session sets the tone, introduces participants, and invites reflection on our shared inquiry into consciousness.</p>
-            <div class="speakers">
-              <img src="https://www.aliusresearch.org/uploads/9/1/6/0/91600416/lunch_orig.png" alt="Organizing Team" class="speaker-badge-img">
+
+          <div class="hero-banner-overlay">
+            <div class="banner-caption">
+              <h3>The Sanctuary for Deep Inquiry</h3>
+              <p>Where first-person phenomenological clarity meets empirical neuroscience</p>
             </div>
           </div>
         </div>
 
-        <div class="session-card">
-          <div class="time-block">
-            <span class="date">July 25</span>
-            <span class="time">12:00–13:30</span>
+        <!-- Date & Location Below Banner -->
+        <div class="hero-meta-bar-below">
+          <span class="dot"></span>
+          <span>July 25–31, 2027 • Silent Valley</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- The 7 Thematic Circles Section -->
+    <section id="themes" class="thematic-circles-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">The Seven Circles of Inquiry</h2>
+          <p class="section-desc">Each day is centered upon a core thematic circle, advancing from phenomenological origins to embodied selfhood, global brain models, altered states, and synthetic minds.</p>
+        </div>
+
+        <!-- Circular Carousel -->
+        <div class="circle-carousel-wrapper">
+          <button class="carousel-arrow carousel-prev" aria-label="Previous day">&#8592;</button>
+
+          <div class="circle-carousel">
+            <!-- Circle 1 -->
+            <a class="circle-card active" data-day="1" title="Day 1 – Phenomenological Horizons">
+              <div class="circle-img-disc">
+                <img src="assets/circle_day1.jpg" alt="Day 1: Phenomenological Horizons" />
+              </div>
+              <span class="circle-day-pill">Day 01</span>
+              <span class="circle-date">Jul 25</span>
+              <div class="circle-theme-title">Phenomenological Horizons</div>
+            </a>
+
+            <!-- Circle 2 -->
+            <a class="circle-card" data-day="2" title="Day 2 – The Embodied Mind">
+              <div class="circle-img-disc">
+                <img src="assets/circle_day2.jpg" alt="Day 2: The Embodied Mind" />
+              </div>
+              <span class="circle-day-pill">Day 02</span>
+              <span class="circle-date">Jul 26</span>
+              <div class="circle-theme-title">The Embodied Mind</div>
+            </a>
+
+            <!-- Circle 3 -->
+            <a class="circle-card" data-day="3" title="Day 3 – Global Brain Theories">
+              <div class="circle-img-disc">
+                <img src="assets/circle_day3.jpg" alt="Day 3: Global Brain Theories" />
+              </div>
+              <span class="circle-day-pill">Day 03</span>
+              <span class="circle-date">Jul 27</span>
+              <div class="circle-theme-title">Global Brain Theories</div>
+            </a>
+
+            <!-- Circle 4 -->
+            <a class="circle-card" data-day="4" title="Day 4 – Altered States &amp; Dreams">
+              <div class="circle-img-disc">
+                <img src="assets/circle_day4.jpg" alt="Day 4: Altered States &amp; Dreams" />
+              </div>
+              <span class="circle-day-pill">Day 04</span>
+              <span class="circle-date">Jul 28</span>
+              <div class="circle-theme-title">Altered States &amp; Dreams</div>
+            </a>
+
+            <!-- Circle 5 -->
+            <a class="circle-card" data-day="5" title="Day 5 – Minimal Phenomenal Experience">
+              <div class="circle-img-disc">
+                <img src="assets/circle_day5.jpg" alt="Day 5: Minimal Phenomenal Experience" />
+              </div>
+              <span class="circle-day-pill">Day 05</span>
+              <span class="circle-date">Jul 29</span>
+              <div class="circle-theme-title">Minimal Phenomenal Experience</div>
+            </a>
+
+            <!-- Circle 6 -->
+            <a class="circle-card" data-day="6" title="Day 6 – Animal &amp; Machine Minds">
+              <div class="circle-img-disc">
+                <img src="assets/circle_day6.jpg" alt="Day 6: Animal &amp; Machine Minds" />
+              </div>
+              <span class="circle-day-pill">Day 06</span>
+              <span class="circle-date">Jul 30</span>
+              <div class="circle-theme-title">Animal &amp; Machine Minds</div>
+            </a>
+
+            <!-- Circle 7 -->
+            <a class="circle-card" data-day="7" title="Day 7 – Integration &amp; Synthesis">
+              <div class="circle-img-disc">
+                <img src="assets/circle_day7.jpg" alt="Day 7: Integration &amp; Synthesis" />
+              </div>
+              <span class="circle-day-pill">Day 07</span>
+              <span class="circle-date">Jul 31</span>
+              <div class="circle-theme-title">Integration &amp; Synthesis</div>
+            </a>
           </div>
-          <div class="content-block">
-            <div class="tag">Embodied Consciousness</div>
-            <p class="session-desc">A discussion on how bodily states and sensorimotor experiences shape our conscious perception and subjective reality.</p>
-            <div class="speakers">
-              <img src="https://www.aliusresearch.org/uploads/9/1/6/0/91600416/siesta_orig.png" alt="Dr. A. Smith" class="speaker-badge-img">
-              <img src="https://www.aliusresearch.org/uploads/9/1/6/0/91600416/stratos_orig.png" alt="Dr. L. Kumar" class="speaker-badge-img">
-              <img src="https://www.aliusresearch.org/uploads/9/1/6/0/91600416/stratos_orig.png" alt="Dr. L. Kumar" class="speaker-badge-img">
+
+          <button class="carousel-arrow carousel-next" aria-label="Next day">&#8594;</button>
+        </div>
+
+        <!-- Dot indicators -->
+        <div class="carousel-dots">
+          <button class="carousel-dot active" data-day="1"></button>
+          <button class="carousel-dot" data-day="2"></button>
+          <button class="carousel-dot" data-day="3"></button>
+          <button class="carousel-dot" data-day="4"></button>
+          <button class="carousel-dot" data-day="5"></button>
+          <button class="carousel-dot" data-day="6"></button>
+          <button class="carousel-dot" data-day="7"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7-Day Program Section -->
+    <section id="program" class="program-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">The 7-Day Program</h2>
+          <p class="section-desc">A continuous hourly rhythm balancing morning yoga, rigorous keynotes, hands-on labs, silent afternoon reading, and evening fireside salons.</p>
+        </div>
+
+        <!-- Day Selector Tabs -->
+        <div class="day-selector-tabs">
+          <button class="day-tab-btn active" data-day="1">Day 1</button>
+          <button class="day-tab-btn" data-day="2">Day 2</button>
+          <button class="day-tab-btn" data-day="3">Day 3</button>
+          <button class="day-tab-btn" data-day="4">Day 4</button>
+          <button class="day-tab-btn" data-day="5">Day 5</button>
+          <button class="day-tab-btn" data-day="6">Day 6</button>
+          <button class="day-tab-btn" data-day="7">Day 7</button>
+        </div>
+
+        <div class="program-days-wrapper">
+          
+          <!-- ================= DAY 1 ================= -->
+          <div class="day-container active" id="day-1">
+            <div class="day-header-banner">
+              <div class="day-banner-content">
+                <h4>Day 01 • Saturday, July 25</h4>
+                <h3>Foundations & Phenomenological Horizons</h3>
+                <p>Arrival, setting contemplative agreements, the hard vs. real problem, and first-person methodology.</p>
+              </div>
+              <div class="day-inquiry-box">
+                “Can first-person experience ever be fully translated into third-person scientific discourse?”
+              </div>
             </div>
+
+            <div class="timeline-list">
+              <div class="session-card morning-practice">
+                <div class="session-time-col">
+                  <span class="session-time">07:00 – 08:00</span>
+                  <span class="session-format">Practice</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Morning Yoga & Contemplative Meditation</span>
+                    <span class="tag-badge optional-badge">Optional</span>
+                  </div>
+                  <p class="session-desc">Gentle somatic stretching, breath awareness, and seated silence in the open-air pavilion overlooking the valley.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Morning Yoga & Meditation">
+                    <img src="assets/icon_yoga.jpg" alt="Yoga Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">08:00 – 09:30</span>
+                  <span class="session-format">Breakfast</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Communal Breakfast & Mindful Silence</span>
+                  <p class="session-desc">Fresh local fruits, Kerala breakfast, and quiet orientation time across the retreat grounds.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Breakfast">
+                    <img src="assets/icon_meal.jpg" alt="Meal Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card highlighted-keynote">
+                <div class="session-time-col">
+                  <span class="session-time">09:30 – 11:00</span>
+                  <span class="session-format">Circle 1</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Opening Circle: Setting the Phenomenological Horizon</span>
+                    <span class="tag-badge">Plenary</span>
+                  </div>
+                  <p class="session-desc">Welcome and orientation by the organizing collective. Articulating the core inquiry questions and methodological ground rules for the week.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Keynote & Circle">
+                    <img src="assets/icon_keynote.jpg" alt="Keynote Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">11:00 – 11:30</span>
+                  <span class="session-format">Tea Break</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Morning Tea & Informal Exchange</span>
+                  <p class="session-desc">Herbal infusions, coffee, and informal courtyard conversations.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Tea Break">
+                    <img src="assets/icon_tea.jpg" alt="Tea Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">11:30 – 13:00</span>
+                  <span class="session-format">Symposium</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Epistemological Bridges: Varela’s Neurophenomenology in 2027</span>
+                    <span class="tag-badge">Foundations</span>
+                  </div>
+                  <p class="session-desc"><strong>Dr. Kabir Anand</strong> leads an examination of structural isomorphisms between first-person reports and continuous neuroimaging measures.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Methods Symposium">
+                    <img src="assets/icon_lab.svg" alt="Lab Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">13:00 – 14:30</span>
+                  <span class="session-format">Lunch</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Communal Lunch & Rainforest Garden Walk</span>
+                  <p class="session-desc">Nutritious farm-to-table lunch followed by unhurried walks along the nature trails.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Lunch">
+                    <img src="assets/icon_meal.jpg" alt="Meal Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">14:30 – 16:00</span>
+                  <span class="session-format">Reading</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Silent Reading & Personal Reflection</span>
+                    <span class="tag-badge">Quiet Hour</span>
+                  </div>
+                  <p class="session-desc">Uninterrupted personal reading in the retreat library or gardens focusing on Day 1 foundational papers.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Silent Reading">
+                    <img src="assets/icon_reading.svg" alt="Reading Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">16:00 – 16:30</span>
+                  <span class="session-format">Tea Break</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Afternoon Chai & Refreshments</span>
+                  <p class="session-desc">Cardamom tea, light snacks, and relaxed dialogue on the veranda.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Tea Break">
+                    <img src="assets/icon_tea.jpg" alt="Tea Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">16:30 – 18:00</span>
+                  <span class="session-format">Workshop</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Phenomenological Calibration Lab: Descriptive Micro-Interviews</span>
+                    <span class="tag-badge">Methods</span>
+                  </div>
+                  <p class="session-desc">Hands-on partner practicum training in elicitation interview techniques to capture momentary cognitive experiences.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Colloquium & Debate">
+                    <img src="assets/icon_debate.svg" alt="Debate Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">18:00 – 19:30</span>
+                  <span class="session-format">Free Time</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Sunset Reflection & Unstructured Exploration</span>
+                  <p class="session-desc">Sunset views over the Silent Valley canopy, journaling, or spontaneous courtyard discussions.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Sunset Rest">
+                    <img src="assets/icon_salon.svg" alt="Salon Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">19:30 – 21:00</span>
+                  <span class="session-format">Dinner</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Communal Dinner & Evening Fireside Inquiry</span>
+                  <p class="session-desc">Shared evening meal followed by informal fireside discussion on the meta-problem of consciousness.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Dinner & Fireside">
+                    <img src="assets/icon_meal.jpg" alt="Meal Icon" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================= DAY 2 ================= -->
+          <div class="day-container" id="day-2">
+            <div class="day-header-banner">
+              <div class="day-banner-content">
+                <h4>Day 02 • Sunday, July 26</h4>
+                <h3>The Embodied, Enactive & Affective Mind</h3>
+                <p>Investigating how visceral rhythms, heartbeat-evoked potentials, and sensorimotor loops generate the pre-reflective bodily self.</p>
+              </div>
+              <div class="day-inquiry-box">
+                “Is the feeling of being alive generated in the brain, or in the ongoing dialogue with our internal organs?”
+              </div>
+            </div>
+
+            <div class="timeline-list">
+              <div class="session-card morning-practice">
+                <div class="session-time-col">
+                  <span class="session-time">07:00 – 08:00</span>
+                  <span class="session-format">Practice</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Morning Yoga & Contemplative Meditation</span>
+                    <span class="tag-badge optional-badge">Optional</span>
+                  </div>
+                  <p class="session-desc">Interoceptive body-scan yoga focusing on breath, heartbeat awareness, and visceral mindfulness.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Morning Yoga">
+                    <img src="assets/icon_yoga.jpg" alt="Yoga Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">08:00 – 09:30</span>
+                  <span class="session-format">Breakfast</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Communal Breakfast & Morning Contemplation</span>
+                  <p class="session-desc">Breakfast overlooking the misty valley.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Breakfast">
+                    <img src="assets/icon_meal.jpg" alt="Meal Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card highlighted-keynote">
+                <div class="session-time-col">
+                  <span class="session-time">09:30 – 11:00</span>
+                  <span class="session-format">Circle 2</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Keynote: The Living Pulse & Interoceptive Selfhood</span>
+                    <span class="tag-badge">Keynote</span>
+                  </div>
+                  <p class="session-desc"><strong>Dr. Maya Bose</strong> presents experimental findings on heartbeat-evoked potentials (HEP) and gastric rhythms grounding subjective perspective.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Keynote">
+                    <img src="assets/icon_keynote.jpg" alt="Keynote Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">11:00 – 11:30</span>
+                  <span class="session-format">Tea Break</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Morning Tea & Discussion</span>
+                  <p class="session-desc">Herbal teas and informal conversation on the lawn.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Tea Break">
+                    <img src="assets/icon_tea.jpg" alt="Tea Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">11:30 – 13:00</span>
+                  <span class="session-format">Lab</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Somatic Lab: Rubber Hand Illusion & Interoceptive Accuracy</span>
+                    <span class="tag-badge">Hands-on</span>
+                  </div>
+                  <p class="session-desc">Real-time physiological experiments evaluating body ownership manipulation and heartbeat tracking tasks.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Laboratory">
+                    <img src="assets/icon_lab.svg" alt="Lab Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">13:00 – 14:30</span>
+                  <span class="session-format">Lunch</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Communal Lunch & Silent Forest Walk</span>
+                  <p class="session-desc">Fresh regional lunch and silent sensory walks through the teak forest.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Lunch">
+                    <img src="assets/icon_meal.jpg" alt="Meal Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">14:30 – 16:00</span>
+                  <span class="session-format">Reading</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Silent Reading & Personal Reflection</span>
+                    <span class="tag-badge">Quiet Hour</span>
+                  </div>
+                  <p class="session-desc">Dedicated reading hour focusing on embodied cognition and autonomic neural signaling.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Reading">
+                    <img src="assets/icon_reading.svg" alt="Reading Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">16:00 – 16:30</span>
+                  <span class="session-format">Tea Break</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Afternoon Tea & Snacks</span>
+                  <p class="session-desc">Ginger tea and garden discussions.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Tea Break">
+                    <img src="assets/icon_tea.jpg" alt="Tea Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">16:30 – 18:00</span>
+                  <span class="session-format">Colloquium</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Affective Neurobiology: From Homeostasis to Felt Valence</span>
+                    <span class="tag-badge">Debate</span>
+                  </div>
+                  <p class="session-desc">Dialogue on how affective valence transforms raw physiological regulation into subjective feelings of pleasure and pain.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Colloquium">
+                    <img src="assets/icon_debate.svg" alt="Debate Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">18:00 – 19:30</span>
+                  <span class="session-format">Free Time</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Sunset Rest & Informal Dialogues</span>
+                  <p class="session-desc">Leisure time before dinner.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Sunset Rest">
+                    <img src="assets/icon_salon.svg" alt="Salon Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">19:30 – 21:00</span>
+                  <span class="session-format">Dinner</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Communal Dinner & Evening Salon</span>
+                  <p class="session-desc">Open evening salon: "Does consciousness require a living biological body?"</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Dinner">
+                    <img src="assets/icon_meal.jpg" alt="Meal Icon" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================= DAY 3 ================= -->
+          <div class="day-container" id="day-3">
+            <div class="day-header-banner">
+              <div class="day-banner-content">
+                <h4>Day 03 • Monday, July 27</h4>
+                <h3>Neural Correlates & Global Brain Architecture</h3>
+                <p>Predictive processing architectures, Integrated Information Theory (IIT), and results from the Cogitate adversarial collaboration.</p>
+              </div>
+              <div class="day-inquiry-box">
+                “Does consciousness reside in the posterior cortical 'hot zone' or the frontal-parietal ignition network?”
+              </div>
+            </div>
+
+            <div class="timeline-list">
+              <div class="session-card morning-practice">
+                <div class="session-time-col">
+                  <span class="session-time">07:00 – 08:00</span>
+                  <span class="session-format">Practice</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Morning Yoga & Contemplative Meditation</span>
+                    <span class="tag-badge optional-badge">Optional</span>
+                  </div>
+                  <p class="session-desc">Mindful vinyasa and attentional stabilization meditation.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Yoga">
+                    <img src="assets/icon_yoga.jpg" alt="Yoga Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">08:00 – 09:30</span>
+                  <span class="session-format">Breakfast</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Communal Breakfast</span>
+                  <p class="session-desc">Nutritious breakfast and quiet time.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Breakfast">
+                    <img src="assets/icon_meal.jpg" alt="Meal Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card highlighted-keynote">
+                <div class="session-time-col">
+                  <span class="session-time">09:30 – 11:00</span>
+                  <span class="session-format">Circle 3</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Keynote: Perception as Controlled Hallucination</span>
+                    <span class="tag-badge">Keynote</span>
+                  </div>
+                  <p class="session-desc"><strong>Prof. Vijay Salgaonkar</strong> presents the predictive processing paradigm: how top-down generative models construct waking reality.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Keynote">
+                    <img src="assets/icon_keynote.jpg" alt="Keynote Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">11:00 – 11:30</span>
+                  <span class="session-format">Tea Break</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Morning Tea & Open Exchange</span>
+                  <p class="session-desc">Refreshments and discussion.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Tea">
+                    <img src="assets/icon_tea.jpg" alt="Tea Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">11:30 – 13:00</span>
+                  <span class="session-format">Workshop</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Generative Brain Modeling & Visual Priors Workshop</span>
+                    <span class="tag-badge">Computation</span>
+                  </div>
+                  <p class="session-desc">Simulating hierarchical prediction error propagation using interactive computational notebooks.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Workshop">
+                    <img src="assets/icon_lab.svg" alt="Lab Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">13:00 – 14:30</span>
+                  <span class="session-format">Lunch</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Communal Lunch & Garden Rest</span>
+                  <p class="session-desc">Wholesome lunch and relaxation.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Lunch">
+                    <img src="assets/icon_meal.jpg" alt="Meal Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">14:30 – 16:00</span>
+                  <span class="session-format">Reading</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Silent Reading & Personal Reflection</span>
+                    <span class="tag-badge">Quiet Hour</span>
+                  </div>
+                  <p class="session-desc">Individual reading time in the sanctuary library exploring adversarial collaboration papers and global workspace models.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Reading">
+                    <img src="assets/icon_reading.svg" alt="Reading Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">16:00 – 16:30</span>
+                  <span class="session-format">Tea Break</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Afternoon Tea</span>
+                  <p class="session-desc">Tea and refreshments.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Tea">
+                    <img src="assets/icon_tea.jpg" alt="Tea Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">16:30 – 18:00</span>
+                  <span class="session-format">Debate</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">The Adversarial Arena: GNW vs. IIT Results</span>
+                    <span class="tag-badge">Falsification</span>
+                  </div>
+                  <p class="session-desc"><strong>Prof. Georgekutty V.</strong> examines MEG, fMRI, and iEEG findings from the Cogitate adversarial collaboration.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Debate">
+                    <img src="assets/icon_debate.svg" alt="Debate Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">18:00 – 19:30</span>
+                  <span class="session-format">Free Time</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Sunset Walk & Rest</span>
+                  <p class="session-desc">Relaxation across the retreat sanctuary.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Sunset Rest">
+                    <img src="assets/icon_salon.svg" alt="Salon Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">19:30 – 21:00</span>
+                  <span class="session-format">Dinner</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Dinner & Fireside Dialogue</span>
+                  <p class="session-desc">Evening discussion on the methodological future of adversarial collaborations in neuroscience.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Dinner">
+                    <img src="assets/icon_meal.jpg" alt="Meal Icon" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================= DAY 4 ================= -->
+          <div class="day-container" id="day-4">
+            <div class="day-header-banner">
+              <div class="day-banner-content">
+                <h4>Day 04 • Tuesday, July 28</h4>
+                <h3>Altered States, Psychedelics & Dream Engineering</h3>
+                <p>Exploring the entropic brain hypothesis, 5-HT2A receptor kinetics, REBUS models, and the neurocognition of lucid dreaming.</p>
+              </div>
+              <div class="day-inquiry-box">
+                “When high-level cognitive constraints collapse, what reveals itself in the unfettered conscious stream?”
+              </div>
+            </div>
+
+            <div class="timeline-list">
+              <div class="session-card morning-practice">
+                <div class="session-time-col">
+                  <span class="session-time">07:00 – 08:00</span>
+                  <span class="session-format">Practice</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Morning Yoga & Contemplative Meditation</span>
+                    <span class="tag-badge optional-badge">Optional</span>
+                  </div>
+                  <p class="session-desc">Pranayama and dream-recall reflection practice in the morning light.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Yoga">
+                    <img src="assets/icon_yoga.jpg" alt="Yoga Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">08:00 – 09:30</span>
+                  <span class="session-format">Breakfast</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Communal Breakfast</span>
+                  <p class="session-desc">Breakfast and quiet reflection.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Breakfast">
+                    <img src="assets/icon_meal.jpg" alt="Meal Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card highlighted-keynote">
+                <div class="session-time-col">
+                  <span class="session-time">09:30 – 11:00</span>
+                  <span class="session-format">Circle 4</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Keynote: The Entropic Brain & The REBUS Model</span>
+                    <span class="tag-badge">Keynote</span>
+                  </div>
+                  <p class="session-desc"><strong>Dr. Geeta Rathore</strong> breaks down the neurodynamics of psychedelic states, cortical hierarchy flattening, and entropy increase.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Keynote">
+                    <img src="assets/icon_keynote.jpg" alt="Keynote Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">11:00 – 11:30</span>
+                  <span class="session-format">Tea Break</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Morning Tea Break</span>
+                  <p class="session-desc">Herbal teas and courtyard catch-ups.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Tea">
+                    <img src="assets/icon_tea.jpg" alt="Tea Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">11:30 – 13:00</span>
+                  <span class="session-format">Lab</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Neuropharmacology Lab: MEG Signal Diversity & Entropy Analysis</span>
+                    <span class="tag-badge">Analysis</span>
+                  </div>
+                  <p class="session-desc">Interactive demonstration measuring Lempel-Ziv complexity and sample entropy across altered vs. normal baseline states.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Lab">
+                    <img src="assets/icon_lab.svg" alt="Lab Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">13:00 – 14:30</span>
+                  <span class="session-format">Lunch</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Communal Lunch & Nature Walk</span>
+                  <p class="session-desc">Lunch and sensory recharge in the sanctuary.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Lunch">
+                    <img src="assets/icon_meal.jpg" alt="Meal Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">14:30 – 16:00</span>
+                  <span class="session-format">Reading</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Silent Reading & Personal Reflection</span>
+                    <span class="tag-badge">Quiet Hour</span>
+                  </div>
+                  <p class="session-desc">Quiet study time focusing on neural entropy, pharmacological papers, and dream neurobiology.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Reading">
+                    <img src="assets/icon_reading.svg" alt="Reading Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">16:00 – 16:30</span>
+                  <span class="session-format">Tea Break</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Afternoon Chai</span>
+                  <p class="session-desc">Fresh chai and veranda discussions.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Tea">
+                    <img src="assets/icon_tea.jpg" alt="Tea Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">16:30 – 18:00</span>
+                  <span class="session-format">Colloquium</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Lucid Dreaming, Hypnagogia & The Spontaneous Mind</span>
+                    <span class="tag-badge">Sleep & Dream</span>
+                  </div>
+                  <p class="session-desc">Two-way real-time communication during REM sleep and the phenomenology of hypnagogic dream formation.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Colloquium">
+                    <img src="assets/icon_debate.svg" alt="Debate Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">18:00 – 19:30</span>
+                  <span class="session-format">Free Time</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Sunset Rest</span>
+                  <p class="session-desc">Personal time and contemplation.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Sunset">
+                    <img src="assets/icon_salon.svg" alt="Salon Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">19:30 – 21:00</span>
+                  <span class="session-format">Dinner</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Dinner & Evening Fireside Salon</span>
+                  <p class="session-desc">Open salon: "Are psychedelic epiphanies epistemic insights or neural artifacts?"</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Dinner">
+                    <img src="assets/icon_meal.jpg" alt="Meal Icon" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================= DAY 5 ================= -->
+          <div class="day-container" id="day-5">
+            <div class="day-header-banner">
+              <div class="day-banner-content">
+                <h4>Day 05 • Wednesday, July 29</h4>
+                <h3>Minimal Phenomenal Experience & Pure Awareness</h3>
+                <p>Investigating the phenomenology of contentless consciousness, meditative cessations (nirodha), and the minimal conditions for awareness.</p>
+              </div>
+              <div class="day-inquiry-box">
+                “What remains of consciousness when all perceptual objects, thoughts, and bodily sensations are extinguished?”
+              </div>
+            </div>
+
+            <div class="timeline-list">
+              <div class="session-card morning-practice">
+                <div class="session-time-col">
+                  <span class="session-time">07:00 – 08:00</span>
+                  <span class="session-format">Practice</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Morning Yoga & Contemplative Meditation</span>
+                    <span class="tag-badge optional-badge">Optional</span>
+                  </div>
+                  <p class="session-desc">Pure stillness meditation: settling the mind into objectless open awareness.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Yoga">
+                    <img src="assets/icon_yoga.jpg" alt="Yoga Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">08:00 – 09:30</span>
+                  <span class="session-format">Breakfast</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Communal Breakfast in Silence</span>
+                  <p class="session-desc">Silent breakfast fostering internal awareness.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Breakfast">
+                    <img src="assets/icon_meal.jpg" alt="Meal Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card highlighted-keynote">
+                <div class="session-time-col">
+                  <span class="session-time">09:30 – 11:00</span>
+                  <span class="session-format">Circle 5</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Keynote: Minimal Phenomenal Experience (MPE) & The Luminous Void</span>
+                    <span class="tag-badge">Keynote</span>
+                  </div>
+                  <p class="session-desc"><strong>Dr. Kabir Anand</strong> maps content-free awareness, tonic alertness, and cessation dynamics in advanced contemplative adepts.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Keynote">
+                    <img src="assets/icon_keynote.jpg" alt="Keynote Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">11:00 – 11:30</span>
+                  <span class="session-format">Tea Break</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Morning Tea Break</span>
+                  <p class="session-desc">Herbal teas and quiet discussions.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Tea">
+                    <img src="assets/icon_tea.jpg" alt="Tea Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">11:30 – 13:00</span>
+                  <span class="session-format">Practicum</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">First-Person Neurophenomenology Practicum</span>
+                    <span class="tag-badge">Introspection</span>
+                  </div>
+                  <p class="session-desc">Structured introspective exercises distinguishing the sense of phenomenal presence from narrative self-talk.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Practicum">
+                    <img src="assets/icon_lab.svg" alt="Lab Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">13:00 – 14:30</span>
+                  <span class="session-format">Lunch</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Communal Lunch & Mindful Walking</span>
+                  <p class="session-desc">Wholesome midday meal and walking meditation along the stream.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Lunch">
+                    <img src="assets/icon_meal.jpg" alt="Meal Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">14:30 – 16:00</span>
+                  <span class="session-format">Reading</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Silent Reading & Personal Reflection</span>
+                    <span class="tag-badge">Quiet Hour</span>
+                  </div>
+                  <p class="session-desc">Personal reading hour examining contemplative maps and minimal phenomenal selfhood literature.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Reading">
+                    <img src="assets/icon_reading.svg" alt="Reading Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">16:00 – 16:30</span>
+                  <span class="session-format">Tea Break</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Afternoon Tea</span>
+                  <p class="session-desc">Tea and refreshments.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Tea">
+                    <img src="assets/icon_tea.jpg" alt="Tea Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">16:30 – 18:00</span>
+                  <span class="session-format">Symposium</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Deconstructing the Ego: Neural Signatures of Self-Loss</span>
+                    <span class="tag-badge">Comparative</span>
+                  </div>
+                  <p class="session-desc">Comparing default mode down-regulation in advanced meditators versus 5-MeO-DMT induced ego dissolution.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Debate">
+                    <img src="assets/icon_debate.svg" alt="Debate Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">18:00 – 19:30</span>
+                  <span class="session-format">Free Time</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Sunset Silence</span>
+                  <p class="session-desc">Unstructured contemplative time.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Sunset">
+                    <img src="assets/icon_salon.svg" alt="Salon Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">19:30 – 21:00</span>
+                  <span class="session-format">Dinner</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Dinner & Fireside Circle</span>
+                  <p class="session-desc">Evening circle: "Is non-dual awareness the ground state of biological consciousness?"</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Dinner">
+                    <img src="assets/icon_meal.jpg" alt="Meal Icon" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================= DAY 6 ================= -->
+          <div class="day-container" id="day-6">
+            <div class="day-header-banner">
+              <div class="day-banner-content">
+                <h4>Day 06 • Thursday, July 30</h4>
+                <h3>Comparative, Animal & Artificial Minds</h3>
+                <p>Examining sentience across non-human animal taxa, brain organoids, and whether Large Language Models could possess inner phenomenal experience.</p>
+              </div>
+              <div class="day-inquiry-box">
+                “How do we distinguish genuine subjective feelings from hyper-sophisticated linguistic behavior?”
+              </div>
+            </div>
+
+            <div class="timeline-list">
+              <div class="session-card morning-practice">
+                <div class="session-time-col">
+                  <span class="session-time">07:00 – 08:00</span>
+                  <span class="session-format">Practice</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Morning Yoga & Contemplative Meditation</span>
+                    <span class="tag-badge optional-badge">Optional</span>
+                  </div>
+                  <p class="session-desc">Morning yoga focusing on somatic presence and open awareness.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Yoga">
+                    <img src="assets/icon_yoga.jpg" alt="Yoga Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">08:00 – 09:30</span>
+                  <span class="session-format">Breakfast</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Communal Breakfast</span>
+                  <p class="session-desc">Breakfast in the dining hall.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Breakfast">
+                    <img src="assets/icon_meal.jpg" alt="Meal Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card highlighted-keynote">
+                <div class="session-time-col">
+                  <span class="session-time">09:30 – 11:00</span>
+                  <span class="session-format">Circle 6</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Keynote: Synthetic Sentience & The Hard Question in AI</span>
+                    <span class="tag-badge">Keynote</span>
+                  </div>
+                  <p class="session-desc"><strong>Dr. Siddharth Sen (John Doe)</strong> examines substrate independence, recurrent architectures, and tests for phenomenal consciousness in LLMs.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Keynote">
+                    <img src="assets/icon_keynote.jpg" alt="Keynote Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">11:00 – 11:30</span>
+                  <span class="session-format">Tea Break</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Morning Tea Break</span>
+                  <p class="session-desc">Tea and courtyard discussion.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Tea">
+                    <img src="assets/icon_tea.jpg" alt="Tea Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">11:30 – 13:00</span>
+                  <span class="session-format">Debate</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Debate: Evaluating Sentience in Non-Human & Synthetic Systems</span>
+                    <span class="tag-badge">AI & Animal</span>
+                  </div>
+                  <p class="session-desc">Cross-disciplinary panel evaluating cephalopod cognition, cortical organoids, and multi-agent AI networks.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Debate">
+                    <img src="assets/icon_debate.svg" alt="Debate Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">13:00 – 14:30</span>
+                  <span class="session-format">Lunch</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Communal Lunch & Forest Walk</span>
+                  <p class="session-desc">Midday meal and nature walks.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Lunch">
+                    <img src="assets/icon_meal.jpg" alt="Meal Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">14:30 – 16:00</span>
+                  <span class="session-format">Reading</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Silent Reading & Personal Reflection</span>
+                    <span class="tag-badge">Quiet Hour</span>
+                  </div>
+                  <p class="session-desc">Reading time focusing on dimensions of animal consciousness and philosophy of AI sentience.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Reading">
+                    <img src="assets/icon_reading.svg" alt="Reading Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">16:00 – 16:30</span>
+                  <span class="session-format">Tea Break</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Afternoon Tea</span>
+                  <p class="session-desc">Tea and refreshments on the veranda.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Tea">
+                    <img src="assets/icon_tea.jpg" alt="Tea Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">16:30 – 18:00</span>
+                  <span class="session-format">Colloquium</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Dimensions of Non-Human Consciousness</span>
+                    <span class="tag-badge">Comparative</span>
+                  </div>
+                  <p class="session-desc">Assessing sensory richness, temporal unity, and evaluative valence across octopuses, corvids, and human infants.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Colloquium">
+                    <img src="assets/icon_debate.svg" alt="Debate Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">18:00 – 19:30</span>
+                  <span class="session-format">Free Time</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Sunset Rest</span>
+                  <p class="session-desc">Relaxation across the grounds.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Sunset">
+                    <img src="assets/icon_salon.svg" alt="Salon Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">19:30 – 21:00</span>
+                  <span class="session-format">Dinner</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Dinner & Fireside Dialogue</span>
+                  <p class="session-desc">Evening salon on the moral status and ethics of synthetic consciousness.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Dinner">
+                    <img src="assets/icon_meal.jpg" alt="Meal Icon" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================= DAY 7 ================= -->
+          <div class="day-container" id="day-7">
+            <div class="day-header-banner">
+              <div class="day-banner-content">
+                <h4>Day 07 • Friday, July 31</h4>
+                <h3>Integration, Ethics & Future Horizons</h3>
+                <p>Synthesizing the week's realizations, establishing future open-science collaborations, and concluding with the ceremonial closing circle.</p>
+              </div>
+              <div class="day-inquiry-box">
+                “How does a mature science of consciousness transform our ethics, medicine, and relationship to the living world?”
+              </div>
+            </div>
+
+            <div class="timeline-list">
+              <div class="session-card morning-practice">
+                <div class="session-time-col">
+                  <span class="session-time">07:00 – 08:00</span>
+                  <span class="session-format">Practice</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Morning Yoga & Contemplative Meditation</span>
+                    <span class="tag-badge optional-badge">Optional</span>
+                  </div>
+                  <p class="session-desc">Final morning yoga and gratitude meditation overlooking the valley.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Yoga">
+                    <img src="assets/icon_yoga.jpg" alt="Yoga Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">08:00 – 09:30</span>
+                  <span class="session-format">Breakfast</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Communal Breakfast</span>
+                  <p class="session-desc">Breakfast and morning fellowship.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Breakfast">
+                    <img src="assets/icon_meal.jpg" alt="Meal Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card highlighted-keynote">
+                <div class="session-time-col">
+                  <span class="session-time">09:30 – 11:00</span>
+                  <span class="session-format">Circle 7</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Keynote: Measuring the Spark: The Next Decade of Consciousness Science</span>
+                    <span class="tag-badge">Keynote</span>
+                  </div>
+                  <p class="session-desc"><strong>Prof. Georgekutty V.</strong> outlines emerging clinical frontiers: real-time perturbational complexity monitoring, brain organoid ethics, and neural prosthetics.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Keynote">
+                    <img src="assets/icon_keynote.jpg" alt="Keynote Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">11:00 – 11:30</span>
+                  <span class="session-format">Tea Break</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Morning Tea & Networking</span>
+                  <p class="session-desc">Tea and project discussions.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Tea">
+                    <img src="assets/icon_tea.jpg" alt="Tea Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">11:30 – 13:00</span>
+                  <span class="session-format">Synthesis</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Collaborative Roadmap: Cross-Lab Initiatives 2027–2030</span>
+                    <span class="tag-badge">Roadmap</span>
+                  </div>
+                  <p class="session-desc">Assembling joint grant proposals, adversarial pre-registrations, and open datasets seeded during the retreat dialogues.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Synthesis">
+                    <img src="assets/icon_lab.svg" alt="Lab Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">13:00 – 14:30</span>
+                  <span class="session-format">Lunch</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Communal Lunch & Fellowship</span>
+                  <p class="session-desc">Celebratory midday lunch.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Lunch">
+                    <img src="assets/icon_meal.jpg" alt="Meal Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">14:30 – 16:00</span>
+                  <span class="session-format">Reflection</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Integration & Personal Journaling Hour</span>
+                    <span class="tag-badge">Quiet Hour</span>
+                  </div>
+                  <p class="session-desc">Final solitary reflection hour across the grounds to synthesize personal takeaways and reading notes.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Reading">
+                    <img src="assets/icon_reading.svg" alt="Reading Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">16:00 – 16:30</span>
+                  <span class="session-format">Tea Break</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Afternoon Tea</span>
+                  <p class="session-desc">Refreshments before the final circle.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Tea">
+                    <img src="assets/icon_tea.jpg" alt="Tea Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card highlighted-keynote">
+                <div class="session-time-col">
+                  <span class="session-time">16:30 – 18:30</span>
+                  <span class="session-format">Closing Circle</span>
+                </div>
+                <div class="session-main-col">
+                  <div class="session-tag-row">
+                    <span class="session-title">Final Plenary & Ceremonial Closing Circle</span>
+                    <span class="tag-badge">Closing</span>
+                  </div>
+                  <p class="session-desc">Harvesting individual and collective realizations. Final reflections on how the inquiry into consciousness continues beyond the retreat into scientific craft.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Closing Circle">
+                    <img src="assets/circle_day7.jpg" alt="Closing Icon" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="session-card">
+                <div class="session-time-col">
+                  <span class="session-time">19:00 – 21:30</span>
+                  <span class="session-format">Banquet</span>
+                </div>
+                <div class="session-main-col">
+                  <span class="session-title">Celebratory Farewell Banquet & Classical Music Evening</span>
+                  <p class="session-desc">Festive dinner and traditional instrumental music under the stars.</p>
+                </div>
+                <div class="session-icon-col">
+                  <div class="schedule-icon-disc" title="Banquet">
+                    <img src="assets/icon_meal.jpg" alt="Meal Icon" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Minimal Speakers Section (With Iconic Human Avatars) -->
+    <section id="speakers" class="speakers-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Speakers</h2>
+          <p class="section-desc">Six leading researchers spanning computational neuroscience, philosophy of mind, neuropharmacology, visceral biology, and clinical coma recovery.</p>
+        </div>
+
+        <div class="speakers-grid">
+          <!-- Speaker 1 -->
+          <div class="speaker-card-minimal">
+            <div class="speaker-photo-wrapper">
+              <img src="assets/avatar_speaker1.svg" alt="Prof. Vijay Salgaonkar" class="speaker-avatar-img" />
+            </div>
+            <h3 class="speaker-name">Prof. Vijay Salgaonkar, PhD</h3>
+            <p class="speaker-affil-text">Center for Computational Cognitive Science, Goa</p>
+          </div>
+
+          <!-- Speaker 2 -->
+          <div class="speaker-card-minimal">
+            <div class="speaker-photo-wrapper">
+              <img src="assets/avatar_speaker2.svg" alt="Dr. Maya Bose" class="speaker-avatar-img" />
+            </div>
+            <h3 class="speaker-name">Dr. Maya Bose, MD, PhD</h3>
+            <p class="speaker-affil-text">Laboratory of Visceral Neuroscience, Kolkata</p>
+          </div>
+
+          <!-- Speaker 3 -->
+          <div class="speaker-card-minimal">
+            <div class="speaker-photo-wrapper">
+              <img src="assets/avatar_speaker3.svg" alt="Dr. Kabir Anand" class="speaker-avatar-img" />
+            </div>
+            <h3 class="speaker-name">Dr. Kabir Anand, PhD</h3>
+            <p class="speaker-affil-text">Department of Philosophy & Contemplative Studies, Delhi</p>
+          </div>
+
+          <!-- Speaker 4 -->
+          <div class="speaker-card-minimal">
+            <div class="speaker-photo-wrapper">
+              <img src="assets/avatar_speaker4.svg" alt="Dr. Geeta Rathore" class="speaker-avatar-img" />
+            </div>
+            <h3 class="speaker-name">Dr. Geeta Rathore, PhD</h3>
+            <p class="speaker-affil-text">Center for Psychedelic Science, Mumbai</p>
+          </div>
+
+          <!-- Speaker 5 -->
+          <div class="speaker-card-minimal">
+            <div class="speaker-photo-wrapper">
+              <img src="assets/avatar_speaker5.svg" alt="Prof. Georgekutty V." class="speaker-avatar-img" />
+            </div>
+            <h3 class="speaker-name">Prof. Georgekutty V., MD, PhD</h3>
+            <p class="speaker-affil-text">Institute of Brain Recovery, Kochi</p>
+          </div>
+
+          <!-- Speaker 6 -->
+          <div class="speaker-card-minimal">
+            <div class="speaker-photo-wrapper">
+              <img src="assets/avatar_speaker6.svg" alt="Dr. Siddharth Sen" class="speaker-avatar-img" />
+            </div>
+            <h3 class="speaker-name">Dr. Siddharth Sen (John Doe), PhD</h3>
+            <p class="speaker-affil-text">Center for Artificial Sentience, Bengaluru</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="speakers">
-      <h3>Speakers</h3>
-      <div class="speaker-grid">
-        <div class="speaker-card">
-          <img src="https://www.aliusresearch.org/uploads/9/1/6/0/91600416/morningglory_orig.png" alt="Dr. A. Smith">
-          <h4>Dr. A. Smith</h4>
-          <p>Philosopher of Mind, University of Somewhere</p>
-        </div>
-        <div class="speaker-card">
-          <img src="https://via.placeholder.com/200" alt="Dr. L. Kumar">
-          <h4>Dr. L. Kumar</h4>
-          <p>Neuroscientist, Cognitive Lab India</p>
-        </div>
-        <div class="speaker-card">
-          <img src="https://via.placeholder.com/200" alt="Prof. Y. Tanaka">
-          <h4>Prof. Y. Tanaka</h4>
-          <p>Artist & Theorist, Tokyo Arts Academy</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="research-papers">
-      <h3>Reading Time</h3>
-      <div class="papers-grid">
-        <div class="paper-card">
-          <h4 class="paper-title">The Hitchhiker’s Guide to Neurophenomenology – The Case of Studying Self Boundaries With Meditators</h4>
-          <div class="paper-meta">
-            <span class="paper-journal">Frontiers in Psychology</span>
-            <span class="paper-year">2020</span>
-          </div>
-          <p class="paper-details">This paper is a practical guide to neurophenomenology. Varela’s neurophenomenological research program (NRP) aspires to bridge the gap between, and integrate, first-person (1P) and</p>
-          <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2020.01680/full" target="_blank" class="paper-link">Read Paper</a>
+    <!-- Reading Time Library Section (Arranged by Days: 2 Papers per Day) -->
+    <section id="reading" class="reading-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Reading Time</h2>
+          <p class="section-desc">Fourteen papers. Two per day. Consider them your entry ticket. Participants are expected to have wrestled with these before arriving — the conversations run a lot deeper when everyone's already argued with the authors in their head.</p>
         </div>
 
-        <div class="paper-card">
-          <h4 class="paper-title">Psychedelics, Meditation, and Self-Consciousness</h4>
-          <div class="paper-meta">
-            <span class="paper-journal">Frontiers in Psychology</span>
-            <span class="paper-year">2018</span>
+        <div class="reading-controls">
+          <!-- Day Filter Pills -->
+          <div class="category-filter-pills">
+            <button class="filter-pill-btn active" data-filter="1">Day 1</button>
+            <button class="filter-pill-btn" data-filter="2">Day 2</button>
+            <button class="filter-pill-btn" data-filter="3">Day 3</button>
+            <button class="filter-pill-btn" data-filter="4">Day 4</button>
+            <button class="filter-pill-btn" data-filter="5">Day 5</button>
+            <button class="filter-pill-btn" data-filter="6">Day 6</button>
+            <button class="filter-pill-btn" data-filter="7">Day 7</button>
           </div>
-          <p class="paper-details">In recent years, the scientific study of meditation and psychedelic drugs has seen remarkable developments. The increased focus on meditation in cognitive neuroscience has led to a cross-cultural classification of standard meditation styles validated by functional and structural neuroanatomical data.</p>
-          <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2018.01475/full" target="_blank" class="paper-link">Read Paper</a>
         </div>
 
-        <div class="paper-card">
-          <h4 class="paper-title">What Is It Like to Be a Bat?</h4>
-          <div class="paper-meta">
-            <span class="paper-journal">The Philosophical Review</span>
-            <span class="paper-year">1974</span>
-          </div>
-          <p class="paper-details">Consciousness is what makes the mind-body problem really intractable. Perhaps that is why current discussions</p>
-          <a href="https://www.sas.upenn.edu/~cavitch/pdf-library/Nagel_Bat.pdf" target="_blank" class="paper-link">Read Paper</a>
-        </div>
+        <!-- Papers Grouped by Day -->
+        <div id="papers-container">
+          
+          <!-- Day 1 Papers -->
+          <div class="day-reading-cluster" data-day="1">
+            <div class="day-reading-cluster-title">
+              <span>Day 01 Preparatory Reading • Phenomenological Horizons</span>
+            </div>
+            <div class="papers-grid">
+              <div class="paper-card">
+                <div>
+                  <h3 class="paper-title">Consciousness science: where are we, where are we going, and what if we get there?</h3>
+                  <div class="paper-meta-row">
+                    <span class="paper-journal">Frontiers in Science</span>
+                    <span class="paper-year">2025</span>
+                  </div>
+                  <p class="paper-details">A comprehensive multidisciplinary roadmap synthesizing the current empirical state of consciousness research, identifying major roadblocks, and charting the next horizon of experimental frameworks.</p>
+                </div>
+                <div class="paper-footer-row">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Frontiers Consortium</span>
+                  <a href="https://www.frontiersin.org/journals/science/articles/10.3389/fsci.2025.1546279/full" target="_blank" rel="noopener noreferrer" class="paper-link">Read Paper →</a>
+                </div>
+              </div>
 
-        <div class="paper-card">
-          <h4 class="paper-title">Toward a Unified Model of Advanced Meditation, Human Development, Meditation Maps, and Transtradition Metaphors: Facing Impermanence, Suffering, and Death</h4>
-          <div class="paper-meta">
-            <span class="paper-journal">Mindfulness</span>
-            <span class="paper-year">2025</span>
+              <div class="paper-card">
+                <div>
+                  <h3 class="paper-title">The Hitchhiker’s Guide to Neurophenomenology – Studying Self Boundaries With Meditators</h3>
+                  <div class="paper-meta-row">
+                    <span class="paper-journal">Frontiers in Psychology</span>
+                    <span class="paper-year">2020</span>
+                  </div>
+                  <p class="paper-details">Practical methodological guide implementing Varela’s neurophenomenological paradigm. Demonstrates how to calibrate subjective self-boundary dissolution with millisecond-resolution electrophysiological dynamics.</p>
+                </div>
+                <div class="paper-footer-row">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Berkovich-Ohana, A. et al.</span>
+                  <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2020.01680/full" target="_blank" rel="noopener noreferrer" class="paper-link">Read Paper →</a>
+                </div>
+              </div>
+            </div>
           </div>
-          <p class="paper-details">While there exists a large body of research on the possibility of measuring certain aspects of human development, what might be called inner development has mostly been neglected, in particular as it pertains to advanced meditation.</p>
-          <a href="https://link.springer.com/article/10.1007/s12671-025-02632-6" target="_blank" class="paper-link">Read Paper</a>
-        </div>
 
-        <div class="paper-card">
-          <h4 class="paper-title">Consciousness in the cradle: on the emergence of infant experience</h4>
-          <div class="paper-meta">
-            <span class="paper-journal">Trends in Cognitive Sciences</span>
-            <span class="paper-year">2023</span>
-          </div>
-          <p class="paper-details">Critical evaluation of quantum approaches to consciousness, examining both orchestrated objective reduction and quantum information theories.</p>
-          <a href="https://www.sciencedirect.com/science/article/pii/S1364661323002140?" target="_blank" class="paper-link">Read Paper</a>
-        </div>
+          <!-- Day 2 Papers -->
+          <div class="day-reading-cluster" data-day="2">
+            <div class="day-reading-cluster-title">
+              <span>Day 02 Preparatory Reading • The Embodied Mind</span>
+            </div>
+            <div class="papers-grid">
+              <div class="paper-card">
+                <div>
+                  <h3 class="paper-title">The Neural Bases of Interoception and the Bodily Sense of Self</h3>
+                  <div class="paper-meta-row">
+                    <span class="paper-journal">Trends in Neurosciences</span>
+                    <span class="paper-year">2020</span>
+                  </div>
+                  <p class="paper-details">Explores how continuous ascending visceral signals from the heart, gut, and lungs are integrated into the insula and default network to generate subjective first-person perspective.</p>
+                </div>
+                <div class="paper-footer-row">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Park, H. D. & Tallon-Baudry, C.</span>
+                  <a href="https://www.sciencedirect.com/science/article/pii/S016622361400030X" target="_blank" rel="noopener noreferrer" class="paper-link">Read Paper →</a>
+                </div>
+              </div>
 
-        <div class="paper-card">
-          <h4 class="paper-title"> Are There Islands of Awareness?</h4>
-          <div class="paper-meta">
-            <span class="paper-journal">Trends in Neurosciences</span>
-            <span class="paper-year">2020</span>
+              <div class="paper-card">
+                <div>
+                  <h3 class="paper-title">What Is It Like to Be a Bat?</h3>
+                  <div class="paper-meta-row">
+                    <span class="paper-journal">The Philosophical Review</span>
+                    <span class="paper-year">1974</span>
+                  </div>
+                  <p class="paper-details">The foundational paper establishing that an organism has conscious mental states if and only if there is something that it is like to be that organism for the organism itself.</p>
+                </div>
+                <div class="paper-footer-row">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Nagel, T.</span>
+                  <a href="https://www.sas.upenn.edu/~cavitch/pdf-library/Nagel_Bat.pdf" target="_blank" rel="noopener noreferrer" class="paper-link">Read Paper →</a>
+                </div>
+              </div>
+            </div>
           </div>
-          <p class="paper-details">Ordinary human experience is embedded in a web of causal relations that link the brain to the body and the wider environment.</p>
-          <a href="https://www.sciencedirect.com/science/article/pii/S0166223619302164?" target="_blank" class="paper-link">Read Paper</a>
-        </div>
 
-        <div class="paper-card">
-          <h4 class="paper-title">Psychedelics and the Entropic Brain: Revisited</h4>
-          <div class="paper-meta">
-            <span class="paper-journal">Pharmacological Reviews</span>
-            <span class="paper-year">2024</span>
-          </div>
-          <p class="paper-details">Updated framework for understanding how psychedelic compounds alter consciousness through increased neural entropy and reduced predictive constraints.</p>
-          <a href="https://pharmrev.aspetjournals.org/content/76/2/356" target="_blank" class="paper-link">Read Paper</a>
-        </div>
+          <!-- Day 3 Papers -->
+          <div class="day-reading-cluster" data-day="3">
+            <div class="day-reading-cluster-title">
+              <span>Day 03 Preparatory Reading • Global Brain Theories</span>
+            </div>
+            <div class="papers-grid">
+              <div class="paper-card">
+                <div>
+                  <h3 class="paper-title">Theories of consciousness</h3>
+                  <div class="paper-meta-row">
+                    <span class="paper-journal">Nature Reviews Neuroscience</span>
+                    <span class="paper-year">2022</span>
+                  </div>
+                  <p class="paper-details">Critical taxonomy and comparative assessment of the four primary theoretical frameworks in modern neuroscience: Higher-Order Theories, Global Workspace, Integrated Information, and Predictive Processing.</p>
+                </div>
+                <div class="paper-footer-row">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Seth, A. K. & Bayne, T.</span>
+                  <a href="https://www.nature.com/articles/s41583-022-00587-4" target="_blank" rel="noopener noreferrer" class="paper-link">Read Paper →</a>
+                </div>
+              </div>
 
-        <div class="paper-card">
-          <h4 class="paper-title">Minimal Phenomenal Experience: Meditation, Tonic Alertness, and the Phenomenology of Pure Awareness</h4>
-          <div class="paper-meta">
-            <span class="paper-journal">Philosophy and the Mind Sciences</span>
-            <span class="paper-year">2023</span>
+              <div class="paper-card">
+                <div>
+                  <h3 class="paper-title">An adversarial collaboration to critically evaluate GNW and IIT</h3>
+                  <div class="paper-meta-row">
+                    <span class="paper-journal">Nature / BioRxiv</span>
+                    <span class="paper-year">2023</span>
+                  </div>
+                  <p class="paper-details">Pre-registered adversarial experiment across 6 international laboratories testing empirical divergences between Integrated Information Theory and Global Neuronal Workspace.</p>
+                </div>
+                <div class="paper-footer-row">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Cogitate Consortium</span>
+                  <a href="https://www.biorxiv.org/content/10.1101/2023.06.23.546249v1" target="_blank" rel="noopener noreferrer" class="paper-link">Read Paper →</a>
+                </div>
+              </div>
+            </div>
           </div>
-          <p class="paper-details">Investigation of pure awareness states in meditation and their implications for understanding the minimal conditions for consciousness.</p>
-          <a href="https://philosophymindscience.org/index.php/phimisci/article/view/9427" target="_blank" class="paper-link">Read Paper</a>
-        </div>
 
-        <div class="paper-card">
-          <h4 class="paper-title">Theories of consciousness</h4>
-          <div class="paper-meta">
-            <span class="paper-journal">Nature Reviews Neuroscience</span>
-            <span class="paper-year">2022</span>
-          </div>
-          <p class="paper-details">Recent years have seen a blossoming of theories about the biological and physical basis of consciousness.</p>
-          <a href="https://www.nature.com/articles/s41583-022-00587-4" target="_blank" class="paper-link">Read Paper</a>
-        </div>
+          <!-- Day 4 Papers -->
+          <div class="day-reading-cluster" data-day="4">
+            <div class="day-reading-cluster-title">
+              <span>Day 04 Preparatory Reading • Altered States & Dreams</span>
+            </div>
+            <div class="papers-grid">
+              <div class="paper-card">
+                <div>
+                  <h3 class="paper-title">Psychedelics and the Entropic Brain: Revisited</h3>
+                  <div class="paper-meta-row">
+                    <span class="paper-journal">Pharmacological Reviews</span>
+                    <span class="paper-year">2024</span>
+                  </div>
+                  <p class="paper-details">Updated theoretical framework detailing how 5-HT2A receptor agonism elevates functional brain entropy, flattens cortical energy landscapes, and dismantles modular segregation.</p>
+                </div>
+                <div class="paper-footer-row">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Carhart-Harris, R. L.</span>
+                  <a href="https://pharmrev.aspetjournals.org/content/76/2/356" target="_blank" rel="noopener noreferrer" class="paper-link">Read Paper →</a>
+                </div>
+              </div>
 
-        <div class="paper-card">
-          <h4 class="paper-title">Dimensions of Animal Consciousness</h4>
-          <div class="paper-meta">
-            <span class="paper-journal">Trends in Cognitive Sciences</span>
-            <span class="paper-year">2020</span>
+              <div class="paper-card">
+                <div>
+                  <h3 class="paper-title">REBUS and the Anarchic Brain: Toward a Unified Model of Brain Action</h3>
+                  <div class="paper-meta-row">
+                    <span class="paper-journal">Pharmacological Reviews</span>
+                    <span class="paper-year">2019</span>
+                  </div>
+                  <p class="paper-details">The seminal formulation of the Relaxed Beliefs Under Psychedelics (REBUS) model unifying free-energy principles with psychedelic neurodynamics.</p>
+                </div>
+                <div class="paper-footer-row">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Carhart-Harris, R. & Friston, K.</span>
+                  <a href="https://pharmrev.aspetjournals.org/content/71/3/316" target="_blank" rel="noopener noreferrer" class="paper-link">Read Paper →</a>
+                </div>
+              </div>
+            </div>
           </div>
-          <p class="paper-details">In recent years, debates about animal consciousness have moved on from the question of whether any non-human animals are conscious to the questions of which animals are conscious and what form their conscious experiences take.</p>
-          <a href="https://www.sciencedirect.com/science/article/pii/S1364661320301923?" target="_blank" class="paper-link">Read Paper</a>
+
+          <!-- Day 5 Papers -->
+          <div class="day-reading-cluster" data-day="5">
+            <div class="day-reading-cluster-title">
+              <span>Day 05 Preparatory Reading • Minimal Phenomenal Experience</span>
+            </div>
+            <div class="papers-grid">
+              <div class="paper-card">
+                <div>
+                  <h3 class="paper-title">Minimal Phenomenal Experience: Meditation, Tonic Alertness, and Pure Awareness</h3>
+                  <div class="paper-meta-row">
+                    <span class="paper-journal">Philosophy and the Mind Sciences</span>
+                    <span class="paper-year">2023</span>
+                  </div>
+                  <p class="paper-details">Rigorous investigation into contentless conscious states, characterizing pure awareness as an introspectively accessible state of tonic alertness without intentional objects.</p>
+                </div>
+                <div class="paper-footer-row">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Metzinger, T.</span>
+                  <a href="https://philosophymindscience.org/index.php/phimisci/article/view/9427" target="_blank" rel="noopener noreferrer" class="paper-link">Read Paper →</a>
+                </div>
+              </div>
+
+              <div class="paper-card">
+                <div>
+                  <h3 class="paper-title">Toward a Unified Model of Advanced Meditation, Human Development, and Meditation Maps</h3>
+                  <div class="paper-meta-row">
+                    <span class="paper-journal">Mindfulness</span>
+                    <span class="paper-year">2025</span>
+                  </div>
+                  <p class="paper-details">A cross-traditional synthesis mapping stages of advanced contemplative practice, non-dual states, cessation phenomena (nirodha), and their trajectories in contemporary cognitive science.</p>
+                </div>
+                <div class="paper-footer-row">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Laukkonen, R. E. et al.</span>
+                  <a href="https://link.springer.com/article/10.1007/s12671-025-02632-6" target="_blank" rel="noopener noreferrer" class="paper-link">Read Paper →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Day 6 Papers -->
+          <div class="day-reading-cluster" data-day="6">
+            <div class="day-reading-cluster-title">
+              <span>Day 06 Preparatory Reading • Animal & Machine Minds</span>
+            </div>
+            <div class="papers-grid">
+              <div class="paper-card">
+                <div>
+                  <h3 class="paper-title">Dimensions of Animal Consciousness</h3>
+                  <div class="paper-meta-row">
+                    <span class="paper-journal">Trends in Cognitive Sciences</span>
+                    <span class="paper-year">2020</span>
+                  </div>
+                  <p class="paper-details">Proposes a multidimensional framework for animal sentience across perceptual richness, evaluative affect, integration across time, and selfhood.</p>
+                </div>
+                <div class="paper-footer-row">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Birch, J., Schnell, A. K., Clayton, N. S.</span>
+                  <a href="https://www.sciencedirect.com/science/article/pii/S1364661320301923" target="_blank" rel="noopener noreferrer" class="paper-link">Read Paper →</a>
+                </div>
+              </div>
+
+              <div class="paper-card">
+                <div>
+                  <h3 class="paper-title">Could a Large Language Model Be Conscious?</h3>
+                  <div class="paper-meta-row">
+                    <span class="paper-journal">Boston Review / NeurIPS</span>
+                    <span class="paper-year">2023</span>
+                  </div>
+                  <p class="paper-details">Systematic evaluation of current generative AI models against criteria derived from neuroscience theories (recurrence, global workspace, embodied action) to assess potential sentience.</p>
+                </div>
+                <div class="paper-footer-row">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Chalmers, D. J.</span>
+                  <a href="https://bostonreview.net/articles/could-a-large-language-model-be-conscious/" target="_blank" rel="noopener noreferrer" class="paper-link">Read Paper →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Day 7 Papers -->
+          <div class="day-reading-cluster" data-day="7">
+            <div class="day-reading-cluster-title">
+              <span>Day 07 Preparatory Reading • Integration & Future Horizons</span>
+            </div>
+            <div class="papers-grid">
+              <div class="paper-card">
+                <div>
+                  <h3 class="paper-title">Are There Islands of Awareness?</h3>
+                  <div class="paper-meta-row">
+                    <span class="paper-journal">Trends in Neurosciences</span>
+                    <span class="paper-year">2020</span>
+                  </div>
+                  <p class="paper-details">Examines conditions where conscious awareness might persist in total isolation from external sensory inputs and motor outputs—in coma, brain organoids, and hemispherectomy.</p>
+                </div>
+                <div class="paper-footer-row">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Bayne, T., Seth, A., Massimini, M.</span>
+                  <a href="https://www.sciencedirect.com/science/article/pii/S0166223619302164" target="_blank" rel="noopener noreferrer" class="paper-link">Read Paper →</a>
+                </div>
+              </div>
+
+              <div class="paper-card">
+                <div>
+                  <h3 class="paper-title">Consciousness in the cradle: on the emergence of infant experience</h3>
+                  <div class="paper-meta-row">
+                    <span class="paper-journal">Trends in Cognitive Sciences</span>
+                    <span class="paper-year">2023</span>
+                  </div>
+                  <p class="paper-details">Synthesizes neurodevelopmental markers, attention networks, and behavioral indicators to determine when conscious subjective experience first emerges during human infancy.</p>
+                </div>
+                <div class="paper-footer-row">
+                  <span style="font-size: 0.8rem; color: var(--text-muted);">Bayne, T. et al.</span>
+                  <a href="https://www.sciencedirect.com/science/article/pii/S1364661323002140" target="_blank" rel="noopener noreferrer" class="paper-link">Read Paper →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
   </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-brand">Consciousness Retreat 2027</div>
+      <p class="footer-tagline">“The mind is not a vessel to be filled, but a fire to be kindled.”</p>
+      <p class="footer-copy">
+        July 25–31, 2027 • Silent Valley • All materials and papers linked for scholarly educational inquiry.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Application Script -->
+  <script src="app.js"></script>
 </body>
 </html>
+
